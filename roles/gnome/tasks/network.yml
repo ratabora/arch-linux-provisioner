@@ -1,0 +1,8 @@
+---
+- name: Install NetworkManager
+  pacman: name=networkmanager state=present
+
+- name: Enable NetworkManager to autostart
+  systemd:
+    name: NetworkManager 
+    enabled: yes

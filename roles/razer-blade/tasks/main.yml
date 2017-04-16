@@ -1,0 +1,5 @@
+---
+- name: Install touchpad driver
+  pacman:
+    name: xf86-input-libinput
+    state: present

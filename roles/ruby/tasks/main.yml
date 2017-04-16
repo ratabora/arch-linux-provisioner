@@ -1,0 +1,10 @@
+---
+- name: Install rbenv 
+  aur: name=rbenv user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+
+- name: Install rbenv install 
+  aur: name=ruby-build user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur

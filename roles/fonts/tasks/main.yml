@@ -1,0 +1,21 @@
+---
+
+- name: Install basic fonts
+  pacman:
+    name: ttf-dejavu
+    state: present
+
+- name: Install inconsolata font
+  pacman:
+    name: ttf-inconsolata
+    state: present
+
+- name: Install tewi font
+  aur: name=bdf-tewi-git user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+
+- name: Install termsyn font
+  aur: name=termsyn-font user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur

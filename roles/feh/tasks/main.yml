@@ -1,0 +1,5 @@
+---
+- name: install feh
+  pacman:
+    name: feh
+    state: present

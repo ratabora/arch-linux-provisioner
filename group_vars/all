@@ -1,0 +1,37 @@
+user:
+    name: ratabora 
+    uid: 1000
+    group: ratabora 
+    shell: /usr/bin/zsh
+    email: ratabora@gmail.com 
+    log_dir: log
+
+ssh:
+    port: 22
+    user_key: /root/id_rsa
+    enable_sshd: True
+
+hostname: ravager
+
+dotfiles:
+    url: git@github.com:ratabora/dotfiles.git
+    rcup_flags: -fx README.md
+
+passwordless_sudo:
+    - /usr/bin/openvpn* 
+
+base_packages:
+    - base-devel
+    - vim
+    - tmux
+    - git
+    - tree
+    - openssh
+    - xclip 
+    - openssl
+    - zlib
+
+video_drivers:
+    - xf86-video-intel
+
+ansible_aur_dir: /home/ratabora/.aur/

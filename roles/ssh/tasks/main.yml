@@ -1,0 +1,33 @@
+---
+- name: Install OpenSSH
+  pacman: name=openssh state=present
+
+- name: Push OpenSSH daemon configuration file
+  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config
+
+- name: Create OpenSSH systemd unit file directory
+  file: path=/etc/systemd/system/sshd.socket.d state=directory
+
+- name: Push OpenSSH socket unit file
+  template: src=sshd-socket-override.conf.j2 dest=/etc/systemd/system/sshd.socket.d/override.conf
+  notify:
+    - reload systemd config
+    - restart sshd
+
+- name: Enable and start OpenSSH
+  service: name=sshd.socket enabled=yes state=started
+  when: ssh.enable_sshd == True
+
+- name: Disable and stop OpenSSH
+  service: name=sshd.socket enabled=no state=stopped
+  when: ssh.enable_sshd == False
+
+- name: Make directory for user SSH key
+  file: path=/home/{{ user.name }}/.ssh state=directory owner={{ user.name }} group={{ user.group }}
+
+- name: Install user SSH key
+  copy: src={{ ssh.user_key }} dest=/home/{{ user.name }}/.ssh/id_rsa mode=600 owner={{ user.name }} group={{ user.group }}
+  when: ssh.user_key is defined
+
+- name: Install Mosh
+  pacman: name=mosh state=present

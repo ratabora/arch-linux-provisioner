@@ -1,0 +1,10 @@
+---
+- name: Update and upgrade Arch
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- include: shell.yml
+- include: user.yml
+- include: packages.yml
+- include: sudo.yml

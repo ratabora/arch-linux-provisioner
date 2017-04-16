@@ -1,0 +1,13 @@
+---
+- name: Install Gnome
+  pacman: name=gnome state=present
+
+- name: Enable GDM in systemd
+  systemd:
+    name: gdm.service
+    enabled: yes
+
+- name: Install gnome tweak tool
+  pacman: name=gnome-tweak-tool state=present
+
+- include: network.yml 

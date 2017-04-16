@@ -1,0 +1,10 @@
+---
+- name: Install visualizer prerequisites
+  pacman:
+    name: ncurses,fftw
+    state: present
+ 
+- name: Install visualizer
+  aur: name=cli-visualizer user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur

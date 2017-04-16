@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: yes
+  roles:
+    - { role: base, tags: ['base'] }
+    - { role: aur, tags: ['aur']}
+    - { role: ssh, tags: ['ssh']}
+    - { role: git }
+    - { role: gnome }
+    - { role: x } 
+    - { role: browsers }
+    - { role: ruby }
+    - { role: python }
+    - { role: razer-blade }
+    - { role: ntp }
+    - { role: gaming }
+  vars_prompt:
+    - name: user_password
+      prompt: "Enter desired user password"

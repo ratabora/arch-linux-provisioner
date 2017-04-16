@@ -1,0 +1,6 @@
+---
+- name: Create aur directory for ansible-aur
+  file: path={{ ansible_aur_dir }} state=directory owner={{ user.name }} group={{ user.group }}
+  tags:
+    - aur
+

@@ -1,0 +1,25 @@
+---
+- name: Install Xorg
+  pacman: name=xorg-server state=present
+
+- name: Install Xinit
+  pacman: name=xorg-xinit state=present
+
+- name: Install Xterm
+  pacman: name=xterm state=present
+
+- name: Install Xdpyinfo for displaying information about X server
+  pacman: name=xorg-xdpyinfo state=present
+
+- name: Install xrandr for configuring X server
+  pacman: name=xorg-xrandr state=present
+
+- name: Install arandr GUI for xrander
+  pacman: name=arandr state=present
+
+- name: Install video drivers
+  pacman: name={{ item }} state=present
+  with_items: "{{ video_drivers }}"
+
+- name: Add user to video group
+  user: name={{user.name}} groups=video append=yes

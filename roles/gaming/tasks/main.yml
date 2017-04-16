@@ -1,0 +1,5 @@
+---
+- name: Install Steam
+  pacman: name=steam state=present
+
+# To use the multilib repository, uncomment the [multilib] section in  /etc/pacman.conf 

@@ -1,0 +1,3 @@
+---
+- name: Install wal to manage colorschemes on the fly
+  pacman: name=wal state=present
