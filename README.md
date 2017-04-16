@@ -1,5 +1,6 @@
 # arch-linux-provisioner
-Provision an Arch Linux installation
+Provision an Arch Linux installation. Heavily inspired by [pigmonkey/spark](https://github.com/pigmonkey/spark)
+
 
 ## Razer Stealth
 ### Fix lid close state
