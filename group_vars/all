@@ -30,6 +30,7 @@ base_packages:
     - xclip 
     - openssl
     - zlib
+    - unrar
 
 video_drivers:
     - xf86-video-intel
