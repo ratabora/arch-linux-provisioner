@@ -14,6 +14,8 @@
     - { role: razer-blade }
     - { role: ntp }
     - { role: gaming }
+    - { role: sound }
+    - { role: vpn }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"

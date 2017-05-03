@@ -1,0 +1,8 @@
+---
+- name: Install ovpn
+  pacman: name=openvpn state=present
+
+# Need to put an if gnome installed prereq
+- name: Install gnome network manager vpn
+  pacman: name=networkmanager-openvpn state=present
+
