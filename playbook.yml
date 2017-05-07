@@ -9,8 +9,7 @@
     - { role: gnome }
     - { role: x } 
     - { role: browsers }
-    - { role: ruby }
-    - { role: python }
+    - { role: developer }
     - { role: razer-blade }
     - { role: ntp }
     - { role: gaming }
