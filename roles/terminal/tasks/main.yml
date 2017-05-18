@@ -1,3 +1,15 @@
 ---
-- name: Install wal to manage colorschemes on the fly
-  pacman: name=wal state=present
+# TODO: Set dependency on Gnome
+
+- name: Install Gnome terminal transparency 
+  aur: name=gnome-terminal-transparency user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+
+- name: Install black-screen terminal
+  aur: name=black-screen user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+
+- name: Install terminator 
+  pacman: name=terminator state=present
