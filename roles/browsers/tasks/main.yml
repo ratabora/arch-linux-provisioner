@@ -3,3 +3,9 @@
   pacman: name=chromium state=present
   tags:
     - chromium
+
+- name: Install Widevine for Netflix
+  aur: name=chromium-widevine user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+
