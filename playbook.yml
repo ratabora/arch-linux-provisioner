@@ -16,6 +16,7 @@
     - { role: gaming }
     - { role: sound }
     - { role: vpn }
+    - { role: messaging }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"

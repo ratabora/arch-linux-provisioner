@@ -1,0 +1,9 @@
+---
+- name: Install weechat
+  pacman: name=weechat state=present
+
+- name: Install slack 
+  aur: name=slack-desktop user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+
