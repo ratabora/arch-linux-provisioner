@@ -6,8 +6,9 @@
     - { role: aur, tags: ['aur']}
     - { role: ssh, tags: ['ssh']}
     - { role: git }
-    - { role: gnome }
     - { role: x } 
+    - { role: i3 }
+    - { role: fonts }
     - { role: browsers }
     - { role: developer }
     - { role: terminal }
