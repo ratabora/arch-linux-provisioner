@@ -5,6 +5,7 @@
     - { role: base, tags: ['base'] }
     - { role: aur, tags: ['aur']}
     - { role: ssh, tags: ['ssh']}
+    - { role: wifi }
     - { role: git }
     - { role: x } 
     - { role: i3 }
