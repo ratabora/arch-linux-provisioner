@@ -12,6 +12,7 @@
     - { role: browsers }
     - { role: developer }
     - { role: terminal }
+    - { role: dotfiles }
     - { role: razer-blade }
     - { role: ntp }
     - { role: gaming }
