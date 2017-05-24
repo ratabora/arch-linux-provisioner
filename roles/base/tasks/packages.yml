@@ -4,3 +4,9 @@
   with_items: "{{ base_packages }}"
   tags:
     - packages
+
+- name: Install universal base packages from aur
+  aur: name={{ item }} user={{ user.name }} dir={{ ansible_aur_dir }}
+  with_items: "{{ base_packages_aur }}"
+  tags:
+    - aur
