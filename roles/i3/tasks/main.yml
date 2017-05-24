@@ -2,10 +2,4 @@
 - name: Install i3
   pacman: name=i3 state=present
 
-- name: Create xinit config
-  copy: src=xinitrc dest=/home/{{user.name}}/.xinitrc
-
-- name: Copy over i3 config
-  copy: src=config dest=/home/{{user.name}}/.config/i3/config
-
 - include: rofi.yml
