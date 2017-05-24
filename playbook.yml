@@ -8,7 +8,7 @@
     - { role: wifi }
     - { role: git }
     - { role: x } 
-    - { role: i3 }
+    - { role: wm }
     - { role: fonts }
     - { role: browsers }
     - { role: developer }
