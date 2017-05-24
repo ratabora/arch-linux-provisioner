@@ -1,6 +1,11 @@
 # arch-linux-provisioner
 Provision an Arch Linux installation. Heavily inspired by [pigmonkey/spark](https://github.com/pigmonkey/spark)
 
+## How to run
+
+```
+# ansible-playbook -i localhost playbook.yml
+```
 
 ## Razer Stealth
 ### Fix lid close state
