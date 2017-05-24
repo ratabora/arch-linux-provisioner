@@ -20,6 +20,7 @@
 - name: Intsall docker-compose
   pacman: name=docker-compose state=present
 
+# TODO: For some reason this fails when initially running the playbook. On reboot, it's fine. 
 - name: Enable docker service in systemd
   systemd:
     name: docker.service
