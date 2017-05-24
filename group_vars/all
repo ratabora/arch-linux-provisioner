@@ -31,6 +31,10 @@ base_packages:
     - openssl
     - zlib
     - unrar
+    - thefuck
+
+base_packages_aur:
+    - antibody
 
 video_drivers:
     - xf86-video-intel
