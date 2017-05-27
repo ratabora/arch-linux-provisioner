@@ -15,6 +15,7 @@
     - { role: terminal }
     - { role: dotfiles }
     - { role: razer-blade }
+    - { role: laptop }
     - { role: ntp }
     - { role: gaming }
     - { role: sound }

@@ -1,0 +1,5 @@
+- name: Install utility to manage backlight
+  aur: name=light user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+  

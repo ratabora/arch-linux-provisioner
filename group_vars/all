@@ -35,6 +35,7 @@ base_packages:
 
 base_packages_aur:
     - antibody
+    - neofetch
 
 video_drivers:
     - xf86-video-intel
