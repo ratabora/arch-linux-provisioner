@@ -32,10 +32,13 @@ base_packages:
     - zlib
     - unrar
     - thefuck
+    - ranger
+    - unzip
 
 base_packages_aur:
     - antibody
     - neofetch
+    - drive
 
 video_drivers:
     - xf86-video-intel
