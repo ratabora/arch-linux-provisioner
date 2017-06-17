@@ -20,3 +20,12 @@
   pacman: name=i3-wm state=present
   tags:
     - rofi
+
+- name: Install screenshot utility
+  pacman: name=scrot state=present
+
+- name: Install polybar 
+  aur: name=polybar user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+
