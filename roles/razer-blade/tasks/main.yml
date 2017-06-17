@@ -3,3 +3,19 @@
   pacman:
     name: xf86-input-libinput
     state: present
+
+#- name: Install razer drivers
+#  aur: name=openrazer-meta user={{ user.name }} dir={{ ansible_aur_dir }}
+#  tags:
+#    - aur
+
+- name: Install
+  aur: name=polychromatic user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+
+- name: Install 
+  aur: name=razercommander user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
+
