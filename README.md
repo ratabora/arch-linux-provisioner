@@ -153,6 +153,8 @@ cp /tmp/id_rsa* /root/.ssh/
 ```
 cd /root/
 git clone git@github.com:ratabora/arch-linux-provisioner.git
+cd arch-linux-provisioner
+git submodule init && git submodule update
 ```
 
 # appendix
