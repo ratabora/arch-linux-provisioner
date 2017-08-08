@@ -99,6 +99,12 @@ pacman -S dialog iw wpa_supplicant
 bootctl install
 ```
 
+Need to find the disk PARTUUID
+
+`ls -l /dev/disk/by-partuuid`
+
+Get the disk you installed arch on and drop it in
+
 `/boot/loader/entries/arch.conf`
 ```
 title          Arch Linux
@@ -108,10 +114,11 @@ options        root=PARTUUID=14420948-2cea-4de7-b042-40f67c618660 rw
 ```
 
 ```
-mkdir /boot/efi
-mount /dev/nvmen1p2 /boot/efi/
-cp /boot/vmlinuz-linux /boot/efi/
-cp /boot/initramfs-linux.img /boot/efi
+cp /boot/* /tmp/
+mkdir /tmp/boot/
+mount /dev/nvmen1p2 /tmp/boot/
+cp /boot/vmlinuz-linux /tmp/boot/
+cp /boot/initramfs-linux.img /tmp/boot/
 ```
 
 ## set a password
