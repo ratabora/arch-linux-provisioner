@@ -8,7 +8,7 @@ user:
 
 ssh:
     port: 22
-    user_key: /root/id_rsa
+    user_key: /root/.ssh/id_rsa
     enable_sshd: True
 
 hostname: ravager
