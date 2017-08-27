@@ -8,3 +8,9 @@
   user: name={{ user.name }} group={{ user.group }} password={{ user_password|password_hash('sha512') }} shell={{ user.shell }} update_password=on_create uid={{ user.uid }}
   tags:
     - user
+
+- name: Create aur directory for ansible-aur
+  file: path={{ ansible_aur_dir }} state=directory owner={{ user.name }} group={{ user.group }}
+  tags:
+    - aur
+

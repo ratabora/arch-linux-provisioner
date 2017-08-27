@@ -6,5 +6,5 @@
 
 - include: shell.yml
 - include: user.yml
-- include: packages.yml
 - include: sudo.yml
+- include: packages.yml
