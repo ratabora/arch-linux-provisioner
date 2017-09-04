@@ -4,7 +4,14 @@
   roles:
     - { role: base, tags: ['base'] }
     - { role: ssh }
+    - { role: x }
     - { role: gnome }
+    - { role: vpn }
+    - { role: ntp }
+    - { role: razer-blade }
+    - { role: dotfiles }
+    - { role: browsers }
+    - { role: gaming }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"
