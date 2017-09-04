@@ -9,7 +9,7 @@
   tags:
     - aur
 
-- name: Install flash plugin for Chromium
-  aur: name=pepper-flash user={{ user.name }} dir={{ ansible_aur_dir }}
-  tags:
-    - aur
+#- name: Install flash plugin for Chromium
+#  aur: name=pepper-flash user={{ user.name }} dir={{ ansible_aur_dir }}
+#  tags:
+#    - aur
