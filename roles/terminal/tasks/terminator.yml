@@ -1,5 +1,0 @@
----
-- name: install terminator terminal emulator
-  pacman:
-    name: terminator
-    state: present
