@@ -1,21 +1,21 @@
 ---
+
+# WARNING: This task only works if you have pre-installed pacaur!
+
 - name: Install touchpad driver
   pacman:
     name: xf86-input-libinput
     state: present
 
-#- name: Install razer drivers
-#  aur: name=openrazer-meta user={{ user.name }} dir={{ ansible_aur_dir }}
-#  tags:
-#    - aur
+- name: Install razer drivers
+  aur: name=openrazer-meta user={{ user.name }} dir={{ ansible_aur_dir }}
+  tags:
+    - aur
 
-- name: Install
+- name: Add user to plugdev group for razer drivers
+  user: user={{ user.name }} groups=plugdev append=yes
+
+- name: Install Razer GUI
   aur: name=polychromatic user={{ user.name }} dir={{ ansible_aur_dir }}
   tags:
     - aur
-
-- name: Install 
-  aur: name=razercommander user={{ user.name }} dir={{ ansible_aur_dir }}
-  tags:
-    - aur
-
