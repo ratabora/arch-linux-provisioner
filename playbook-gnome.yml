@@ -9,6 +9,7 @@
     - { role: vpn }
     - { role: ntp }
     - { role: razer-blade }
+    - { role: developer }
     - { role: dotfiles }
     - { role: browsers }
     - { role: gaming }
