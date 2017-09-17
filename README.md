@@ -8,45 +8,61 @@ Provision an Arch Linux installation. Heavily inspired by [pigmonkey/spark](http
 # ansible-playbook -i localhost playbook.yml
 ```
 
-# initial installation
+## initial installation
 
-## setup install environment
-As arch linux usb root
-
+### wifi and time
 ```
 wifi-menu
 timedatectl set-ntp true
 ```
 
-## disk setup
-As arch linux usb root
-
-Get a list of partitions
-
+### disk
+Get a list of partitions to determine what needs to be partitoned.
 ```
 fdisk -l
 ```
 
-Open up the target device for partitioning
-
+Open up the target device for partitioning. If you are making a new EFI boot partition make sure it is of type `EFI`.
 ```
-cgdisk /dev/nvme0n1
-mkfs.ext4 /dev/nvme0n1p6
-mount /dev/nvme0n1p6 /mnt
+cfdisk /dev/device
+```
+
+If you're making a new EFI boot partition you'll need to format it.
+```
+mkfs.fat -F32 /dev/bootpartition
+```
+
+Format the OS partition
+```
+mkfs.ext4 /dev/ospartition
+```
+
+Mount the OS and boot partitions
+```
+mount /dev/ospartition /mnt
+mkdir -p /mnt/boot
+mount /dev/bootpartition /mnt/boot
+```
+
+### base packages
+```
 pacstrap /mnt base
+```
+
+### fstab
+```
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-## time setup
+### time
 ```
 arch-chroot /mnt
-ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime
+ln -sf /usr/share/zoneinfo/US/America/Los_Angeles /etc/localtime
 hwclock --systohc
 ```
 
-## locale setup
-
-Uncomment en_US.UTF-8 UTF-8 in locale
+### locale
+Uncomment `en_US.UTF-8 UTF-8` in locale file
 `/etc/locale.gen`
 ```
 en_US.UTF-8
@@ -57,29 +73,33 @@ Generate locale
 locale-gen
 ```
 
-Set the LANG variable in locale.conf
+Set the LANG variable in locale.conf file
 `/etc/locale.conf`
 ```
 LANG=en_US.UTF-8
 ```
 
-## booting
+### auto mounting boot partition
 Mount the EFI partition on windows by default
 `/etc/fstab`
 ...
 ```
-/dev/nvme0n1p2	/boot	vfat	defaults	0 0
+/dev/bootpartition	/boot	vfat	defaults	0 0
 ```
 
-## network setup
+### intel
+```
+pacman -S intel-ucode
+```
+
+### network
 Create files:
 
 `/etc/hosts`
 
 ```
-127.0.0.1	localhost.localdomain	localhost
-::1		localhost.localdomain	localhost
-127.0.1.1	ravager.localdomain	ravager
+127.0.0.1	localhost.localdomain	ravager
+::1		localhost.localdomain	ravager
 ```
 
 `/etc/hostname`
@@ -93,54 +113,51 @@ pacman -S dialog iw wpa_supplicant
 ```
 
 ## bootloader
-
-*** NEEDS TO BE FIXED UP ***
+Install bootloader
 ```
 bootctl install
 ```
 
-Need to find the disk PARTUUID
-
-`ls -l /dev/disk/by-partuuid`
-
-Get the disk you installed arch on and drop it in
-
-`/boot/loader/entries/arch.conf`
+Configure bootloader
 ```
+nano /boot/loader/loader.conf
+default  arch
+timeout  10
+editor   0
+```
+
+Add boot entry
+```
+ls --lart /dev/disk/by-partuuid/ | grep /dev/ospartition | cut -d' ' -f10 >> /boot/loader/entries/arch.conf
+
+nano /boot/loader/entries/arch.conf
 title          Arch Linux
 linux          /vmlinuz-linux
+initrd         /intel-ucode.img
 initrd         /initramfs-linux.img
-options        root=PARTUUID=14420948-2cea-4de7-b042-40f67c618660 rw
+options        root=PARTUUID=[USE OUTPUT OF PREVIOUS COMMAND HERE] rw
 ```
 
-```
-cp /boot/* /tmp/
-mkdir /tmp/boot/
-mount /dev/nvmen1p2 /tmp/boot/
-cp /boot/vmlinuz-linux /tmp/boot/
-cp /boot/initramfs-linux.img /tmp/boot/
-```
-
-## set a password
+### password
 Set root password
 ```
 passwd
 ```
-Restart
+
+### clean up
 ```
+umount -R /mnt
 reboot
 ```
 
-## prepare ansible
-
-Install ansible, git, and ssh
+### prepare ansible
+Install prerequisites
 ```
 pacman -Syy python2-passlib ansible git openssh
 ```
 
-## ssh keys
+### ssh keys
 Install id_rsa and id_rsa.pub from usb: 
-
 ```
 mkdir /tmp/usb
 mount /dev/sdb1 /tmp/usb
@@ -149,7 +166,7 @@ mkdir /root/.ssh/
 cp /tmp/id_rsa* /root/.ssh/
 ```
 
-## clone the ansible repo
+### clone the ansible repo
 ```
 cd /root/
 git clone git@github.com:ratabora/arch-linux-provisioner.git
