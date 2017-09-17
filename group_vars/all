@@ -37,9 +37,7 @@ base_packages:
     - linux-headers
 
 base_packages_aur:
-    - antibody
     - neofetch
-    - drive
 
 video_drivers:
     - xf86-video-intel

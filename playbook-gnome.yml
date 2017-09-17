@@ -13,7 +13,6 @@
     - { role: terminal } 
     - { role: dotfiles }
     - { role: browsers }
-    - { role: gaming }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"
