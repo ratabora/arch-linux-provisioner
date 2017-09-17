@@ -176,17 +176,12 @@ git submodule init && git submodule update
 
 # appendix
 
+## VMWare
+* If installing using a VM make sure to boot the VM using EFI _before_ your first boot.
+
 ## reference material
 * [arch install guide](https://wiki.archlinux.org/index.php/Installation_guide)
 * [systemd boot loader](https://wiki.archlinux.org/index.php/Systemd-boot)
 * [dual booting with windows](https://wiki.archlinux.org/index.php/Dual_boot_with_Windows)
 * [youtube arch install guide](https://www.youtube.com/watch?v=MMkST5IjSjY)
 * [arch general recommendations](https://wiki.archlinux.org/index.php/General_recommendations)
-
-## learnings
-
-## installing arch
-Need to copy over the vmlinuz and .img files to /boot/EFI in order to install arch
-
-## installing gnome
-Need to enable GDM to get Gnome to autostart
