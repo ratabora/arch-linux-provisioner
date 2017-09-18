@@ -35,6 +35,7 @@ base_packages:
     - ranger
     - unzip
     - linux-headers
+    - atop
 
 base_packages_aur:
     - neofetch
