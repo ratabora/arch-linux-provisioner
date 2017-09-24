@@ -6,7 +6,7 @@
     - aur
 
 - name: Clone user dotfiles
-  git: repo={{ dotfiles.url }} dest=/home/{{ user.name }}/.dotfiles accept_hostkey=yes update=yes
+  git: repo={{ dotfiles.url }} dest=/home/{{ user.name }}/.dotfiles accept_hostkey=yes update=no
   when: dotfiles is defined
   become: yes
   become_user: "{{ user.name }}"
