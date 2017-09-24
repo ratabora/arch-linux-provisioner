@@ -5,6 +5,7 @@
     - { role: base, tags: ['base'] }
     - { role: ssh }
     - { role: x }
+    - { role: fonts }
     - { role: gnome }
     - { role: vpn }
     - { role: ntp }

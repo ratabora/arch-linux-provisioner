@@ -39,6 +39,7 @@ base_packages:
 
 base_packages_aur:
     - neofetch
+    - oh-my-zsh-git 
 
 video_drivers:
     - xf86-video-intel

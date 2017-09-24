@@ -1,3 +1,6 @@
 ---
 - name: Install terminator 
   pacman: name=terminator state=present
+
+- name: Install powerline
+  pacman: name=powerline state=present
