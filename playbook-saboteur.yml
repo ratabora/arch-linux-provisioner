@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  become: yes
+  roles:
+    - { role: base, tags: ['base'] }
+    - { role: ssh }
+    - { role: x }
+    - { role: fonts }
+    - { role: gnome }
+    - { role: vpn }
+    - { role: ntp }
+    - { role: developer }
+    - { role: terminal } 
+    - { role: dotfiles }
+    - { role: browsers }
+  vars_prompt:
+    - name: user_password
+      prompt: "Enter desired user password"

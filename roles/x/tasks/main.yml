@@ -2,6 +2,9 @@
 - name: Install Xorg
   pacman: name=xorg-server state=present
 
+- name: Install xorg group
+  pacman: name=xorg state=present
+
 - name: Install Xinit
   pacman: name=xorg-xinit state=present
 
