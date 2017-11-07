@@ -11,8 +11,6 @@ ssh:
     user_key: /root/.ssh/id_rsa
     enable_sshd: True
 
-hostname: ravager
-
 dotfiles:
     url: git@github.com:ratabora/dotfiles.git
     rcup_flags: -fx README.md
@@ -27,9 +25,7 @@ base_packages:
     - git
     - tree
     - openssh
-    - xclip 
     - openssl
-    - zlib
     - unrar
     - thefuck
     - ranger
