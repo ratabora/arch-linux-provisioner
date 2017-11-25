@@ -33,6 +33,8 @@ base_packages:
     - linux-headers
     - atop
     - wget
+    - xsel
+    - lastpass-cli
 
 base_packages_aur:
     - neofetch
