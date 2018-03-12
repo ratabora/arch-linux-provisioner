@@ -35,6 +35,7 @@ base_packages:
     - wget
     - xsel
     - lastpass-cli
+    - nmap
 
 base_packages_aur:
     - neofetch
